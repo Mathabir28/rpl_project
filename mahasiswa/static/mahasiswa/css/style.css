@@ -7,8 +7,12 @@
 header { 
     background:#2b6cb0; 
     color:white; 
-    padding:12px 20px; 
+    padding:12px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center; 
 }
+
 .hero { 
     text-align:center; 
     padding:40px 20px; 
@@ -52,9 +56,15 @@ header h1 {
 }
 
 header a {
+    background:#e53e3e;
     color:white;
     text-decoration:none;
     font-weight:bold;
+    padding:8px 12px;
+    border-radius:5px;
+}
+header a:hover {
+    background:#601414;
 }
 
 .hero { 
@@ -84,17 +94,17 @@ header a {
     padding: 10px 20px;
 }
 
-.logout-btn {
+/* .logout-btn {
     background-color: red;
     color: white;
     padding: 8px 14px;
     text-decoration: none;
     border-radius: 6px;
-}
+} */
 
-.logout-btn:hover {
+/* .logout-btn:hover {
     background-color: darkred;
-}
+} */
 
 h2 {
     text-align: center;

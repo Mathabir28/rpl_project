@@ -12,9 +12,11 @@
 <body>
     <header>
         <h1>Praktikum RPL - Django</h1>
-        <a href="/accounts/logout/" class="logout-btn">
-            Logout
-        </a>
+        {% if user.is_authenticated %}
+        <a href="/accounts/logout/">Logout</a>
+        {% else %}
+        <a href="/accounts/login/"">Login</a>
+        {% endif %}
     </header>
     <main>
         {% block content %}{% endblock %}
