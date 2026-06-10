@@ -1,25 +1,48 @@
-{% extends 'mahasiswa/base.html' %} {% load static %} {% block content %}
+{% extends 'mahasiswa/base.html' %}
+{% load static %}
+
+{% block content %}
+
 <h2>Daftar Mahasiswa</h2>
 
-<center>
+<a href="{% url 'tambah_mahasiswa' %}">
+    <button>Tambah Mahasiswa</button>
+</a>
+
+<br><br>
+
 <table border="1">
-  <tr>
-    <th>NIM</th>
-    <th>Nama</th>
-    <th>Program Studi</th>
-    <th>Angkatan</th>
-  </tr>
-  {% for mhs in mahasiswas %}
-  <tr>
-    <td>{{ mhs.nim }}</td>
-    <td>{{ mhs.nama }}</td>
-    <td>{{ mhs.programstudi }}</td>
-    <td>{{ mhs.angkatan }}</td>
-  </tr>
-  {% empty %}
-  <tr>
-    <td colspan="3">Belum ada data.</td>
-  </tr>
-  {% endfor %}
+    <tr>
+        <th>NIM</th>
+        <th>Nama</th>
+        <th>Program Studi</th>
+        <th>Angkatan</th>
+        <th>Aksi</th>
+    </tr>
+
+    {% for mhs in mahasiswas %}
+    <tr>
+        <td>{{ mhs.nim }}</td>
+        <td>{{ mhs.nama }}</td>
+        <td>{{ mhs.programstudi }}</td>
+        <td>{{ mhs.angkatan }}</td>
+        <td class="aksi">
+            <a href="{% url 'edit_mahasiswa' mhs.id %}">
+                Edit
+            </a>
+            |
+            <a href="{% url 'hapus_mahasiswa' mhs.id %}"
+               onclick="return confirm('Yakin ingin menghapus data ini?')">
+                Hapus
+            </a>
+        </td>
+    </tr>
+
+    {% empty %}
+    <tr>
+        <td colspan="5">Belum ada data.</td>
+    </tr>
+    {% endfor %}
 </table>
+
 {% endblock %}
